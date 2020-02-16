@@ -5,6 +5,8 @@ namespace ComposerRequireChecker\NodeVisitor;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
 
+use function array_map;
+
 final class UsedSymbolCollector extends NodeVisitorAbstract
 {
     /**
@@ -48,6 +50,7 @@ final class UsedSymbolCollector extends NodeVisitorAbstract
         $this->recordFunctionReturnTypeUsage($node);
         $this->recordConstantFetchUsage($node);
         $this->recordTraitUsage($node);
+        $this->recordCommentUsage($node);
 
         return parent::enterNode($node);
     }
@@ -156,6 +159,17 @@ final class UsedSymbolCollector extends NodeVisitorAbstract
                 array_map([$this, 'recordUsageOf'], $adaptation->insteadof);
             }
         }
+    }
+
+    private function recordCommentUsage(Node $node)
+    {
+        foreach ($node->getComments() as $comment) {
+
+
+
+        }
+
+#                array_map([$this, 'recordUsageOf'], $adaptation->insteadof);
     }
 
     /**

@@ -31,6 +31,7 @@
         "ext-phar": "*",
         "nikic/php-parser": "^4.3",
         "ocramius/package-versions": "^1.4.2",
+        "phpdocumentor/reflection-docblock": "*",
         "symfony/console": "^5.0",
         "webmozart/glob": "^4.1"
     },
